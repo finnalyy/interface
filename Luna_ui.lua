@@ -1837,7 +1837,7 @@ end
 
 -- Interface Management
 local LunaUI = isStudio and script.Parent:WaitForChild("7777") or game:GetObjects("rbxassetid://86467455075715")[1]
-
+LunaUI.Name = "Test"
 local SizeBleh = nil
 
 local function Hide(Window, bind, notif)
