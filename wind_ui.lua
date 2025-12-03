@@ -9,7 +9,7 @@
     To view the source code, see the `src/` folder on the official GitHub repository.
     
     Author: Footagesus (Footages, .ftgs, oftgs)
-    Github: https://github.com/Footagesus/WindUI
+    Github: https://github.com/Footagesus/roblox
     Discord: https://discord.gg/ftgs-development-hub-1300692552005189632
     License: MIT
 ]]
@@ -204,7 +204,7 @@ if not r then
 if l and l.Window and l.Window.Debug then local
 v, x=u:find":%d+: "
 
-warn("[ WindUI: DEBUG Mode ] "..u)
+warn("[ roblox: DEBUG Mode ] "..u)
 
 return l:Notify{
 Title="DEBUG Mode: Error",
@@ -363,7 +363,7 @@ for v,x in pairs(u.Properties or{})do
 local z=m.GetThemeProperty(x,m.Theme)
 if z~=nil then
 if typeof(z)=="Color3"then
-local A=u.Object:FindFirstChild"WindUIGradient"
+local A=u.Object:FindFirstChild"robloxGradient"
 if A then
 A:Destroy()
 end
@@ -376,10 +376,10 @@ end
 elseif typeof(z)=="table"and z.Color and z.Transparency then
 u.Object[v]=Color3.new(1,1,1)
 
-local A=u.Object:FindFirstChild"WindUIGradient"
+local A=u.Object:FindFirstChild"robloxGradient"
 if not A then
 A=Instance.new"UIGradient"
-A.Name="WindUIGradient"
+A.Name="robloxGradient"
 A.Parent=u.Object
 end
 
@@ -400,7 +400,7 @@ end
 end
 else
 
-local A=u.Object:FindFirstChild"WindUIGradient"
+local A=u.Object:FindFirstChild"robloxGradient"
 if A then
 A:Destroy()
 end
@@ -735,7 +735,7 @@ Colors={
 }.IconFrame
 L.Parent=J
 elseif string.find(u,"http")then
-local L="WindUI/"..B.."/assets/."..C.."-"..v..".png"
+local L="roblox/"..B.."/assets/."..C.."-"..v..".png"
 local M,N=pcall(function()
 task.spawn(function()
 local M=m.Request{
@@ -750,7 +750,7 @@ local N,O=pcall(getcustomasset,L)
 if N then
 J.ImageLabel.Image=O
 else
-warn(string.format("[ WindUI.Creator ] Failed to load custom asset '%s': %s",L,tostring(O)))
+warn(string.format("[ roblox.Creator ] Failed to load custom asset '%s': %s",L,tostring(O)))
 J:Destroy()
 
 return
@@ -758,7 +758,7 @@ end
 end)
 end)
 if not M then
-warn("[ WindUI.Creator ]  '"..identifyexecutor().."' doesnt support the URL Images. Error: "..N)
+warn("[ roblox.Creator ]  '"..identifyexecutor().."' doesnt support the URL Images. Error: "..N)
 
 J:Destroy()
 end
@@ -1518,10 +1518,10 @@ New=a.load'g'.New
 
 return[[
 {
-    "name": "windui",
+    "name": "roblox",
     "version": "1.6.61",
     "main": "./dist/main.lua",
-    "repository": "https://github.com/Footagesus/WindUI",
+    "repository": "https://github.com/Footagesus/roblox",
     "discord": "https://discord.gg/ftgs-development-hub-1300692552005189632",
     "author": "Footagesus",
     "description": "Roblox UI Library for scripts",
@@ -1994,7 +1994,7 @@ local ae=a.load'j'.New
 local af=a.load'k'.New
 
 function aa.new(ag,ah,ai)
-local aj=a.load'l'.Init(nil,ag.WindUI.ScreenGui.KeySystem)
+local aj=a.load'l'.Init(nil,ag.roblox.ScreenGui.KeySystem)
 local ak=aj.Create(true)
 
 local al={}
@@ -2303,7 +2303,7 @@ PaddingBottom=UDim.new(0,10),
 })
 
 for e,g in next,ag.KeySystem.API do
-local h=ag.WindUI.Services[g.Type]
+local h=ag.roblox.Services[g.Type]
 if h then
 local i={}
 for j,l in next,h.Args do
@@ -2389,7 +2389,7 @@ ad(r,0.08,{ImageTransparency=1}):Play()
 end)
 ab.AddSignal(r.MouseButton1Click,function()
 m.Copy()
-ag.WindUI:Notify{
+ag.roblox:Notify{
 Title="Key System",
 Content="Key link copied to clipboard.",
 Image="key",
@@ -2450,7 +2450,7 @@ end
 if aB then
 handleSuccess(az)
 else
-ag.WindUI:Notify{
+ag.roblox:Notify{
 Title="Key System. Error",
 Content=aC,
 Icon="triangle-alert",
@@ -2835,7 +2835,7 @@ Buttons=ae.Buttons,
 IconSize=22,
 }
 
-local ag=a.load'l'.Init(nil,ae.WindUI.ScreenGui.Popups)
+local ag=a.load'l'.Init(nil,ae.roblox.ScreenGui.Popups)
 local ah=ag.Create(true,"Popup")
 
 local ai=200
@@ -2857,7 +2857,7 @@ ak=ab.Image(
 af.Icon,
 af.Title..":"..af.Icon,
 0,
-ae.WindUI.Window,
+ae.roblox.Window,
 "Popup",
 true,
 ae.IconThemed,
@@ -3775,18 +3775,18 @@ end
 
 function ac.Init(ad,ae)
 if not ae.Folder then
-warn"[ WindUI.ConfigManager ] Window.Folder is not specified."
+warn"[ roblox.ConfigManager ] Window.Folder is not specified."
 return false
 end
 
 ab=ae
 ac.Folder=ab.Folder
-ac.Path="WindUI/"..tostring(ac.Folder).."/config/"
+ac.Path="roblox/"..tostring(ac.Folder).."/config/"
 
-if not isfolder("WindUI/"..ac.Folder)then
-makefolder("WindUI/"..ac.Folder)
-if not isfolder("WindUI/"..ac.Folder.."/config/")then
-makefolder("WindUI/"..ac.Folder.."/config/")
+if not isfolder("roblox/"..ac.Folder)then
+makefolder("roblox/"..ac.Folder)
+if not isfolder("roblox/"..ac.Folder.."/config/")then
+makefolder("roblox/"..ac.Folder.."/config/")
 end
 end
 
@@ -3863,7 +3863,7 @@ end
 
 local ah,ai=pcall(function()
 local ah=readfile or function()
-warn"[ WindUI.ConfigManager ] The config system doesn't work in the studio."
+warn"[ roblox.ConfigManager ] The config system doesn't work in the studio."
 return nil
 end
 return aa:JSONDecode(ah(af.Path))
@@ -6158,7 +6158,7 @@ Position=UDim2.new(-10,0,-10,0),
 Visible=false,
 Active=false,
 
-Parent=al.WindUI.DropdownGui,
+Parent=al.roblox.DropdownGui,
 AnchorPoint=Vector2.new(1,0),
 },{
 am.UIElements.Menu,
@@ -7254,7 +7254,7 @@ toclipboard(al.Code)
 if al.OnCopy then al.OnCopy()end
 end)
 if not ao then
-ak.WindUI:Notify{
+ak.roblox:Notify{
 Title="Error",
 Content="The "..an.." is not copied. Error: "..ap,
 Icon="x",
@@ -7262,7 +7262,7 @@ Duration=5,
 }
 end
 end
-end,ak.WindUI.UIScale,al)
+end,ak.roblox.UIScale,al)
 
 function al.SetCode(ao,ap)
 an.Set(ap)
@@ -8161,7 +8161,7 @@ VerticalAlignment="Top",
 
 local aq=ak.ElementsModule
 
-aq.Load(al,ap.Content,aq.Elements,ak.Window,ak.WindUI,function()
+aq.Load(al,ap.Content,aq.Elements,ak.Window,ak.roblox,function()
 if not al.Expandable then
 al.Expandable=true
 an.Visible=true
@@ -8358,7 +8358,7 @@ ar.Index=#ac.Elements+1
 ar.GlobalIndex=#ai.AllElements+1
 ar.Parent=ae
 ar.Window=ai
-ar.WindUI=aj
+ar.roblox=aj
 ar.UIScale=am
 ar.ElementsModule=al local
 
@@ -8381,7 +8381,7 @@ end)
 if aw then
 ai.PendingConfigData[ar.Flag]=nil
 else
-warn("[ WindUI ] Failed to apply pending config for '"..ar.Flag.."': "..tostring(ax))
+warn("[ roblox ] Failed to apply pending config for '"..ar.Flag.."': "..tostring(ax))
 end
 end)
 end
@@ -8489,7 +8489,7 @@ OnChangeFunc=function(al)end
 
 function al.Init(am,an,ao,ap)
 Window=am
-WindUI=an
+roblox=an
 al.ToolTipParent=ao
 al.TabHighlight=ap
 return al
@@ -8826,7 +8826,7 @@ end
 
 ao.ElementsModule=a.load'S'
 
-ao.ElementsModule.Load(ao,ao.UIElements.ContainerFrame,ao.ElementsModule.Elements,Window,WindUI,nil,ao.ElementsModule,an)
+ao.ElementsModule.Load(ao,ao.UIElements.ContainerFrame,ao.ElementsModule.Elements,Window,roblox,nil,ao.ElementsModule,an)
 
 
 
@@ -9779,11 +9779,11 @@ math.clamp(as.Y.Offset,ar.MinSize.Y,ar.MaxSize.Y)
 )
 
 if ar.Folder then
-if not isfolder("WindUI/"..ar.Folder)then
-makefolder("WindUI/"..ar.Folder)
+if not isfolder("roblox/"..ar.Folder)then
+makefolder("roblox/"..ar.Folder)
 end
-if not isfolder("WindUI/"..ar.Folder.."/assets")then
-makefolder("WindUI/"..ar.Folder.."/assets")
+if not isfolder("roblox/"..ar.Folder.."/assets")then
+makefolder("roblox/"..ar.Folder.."/assets")
 end
 if not isfolder(ar.Folder)then
 makefolder(ar.Folder)
@@ -10176,7 +10176,7 @@ local e=ai.Request{Url=aD,Method="GET",Headers={["User-Agent"]="Roblox/Exploit"}
 writefile(b,e.Body)
 end)
 if not e then
-warn("[ WindUI.Window.Background ] Failed to download video: "..tostring(g))
+warn("[ roblox.Window.Background ] Failed to download video: "..tostring(g))
 return
 end
 end
@@ -10185,10 +10185,10 @@ local e,g=pcall(function()
 return getcustomasset(b)
 end)
 if not e then
-warn("[ WindUI.Window.Background ] Failed to load custom asset: "..tostring(g))
+warn("[ roblox.Window.Background ] Failed to load custom asset: "..tostring(g))
 return
 end
-warn"[ WindUI.Window.Background ] VideoFrame may not work with custom video"
+warn"[ roblox.Window.Background ] VideoFrame may not work with custom video"
 aD=g
 end
 
@@ -10450,24 +10450,24 @@ PaddingBottom=UDim.new(0,ar.UIPadding),
 
 ai.AddSignal(ar.UIElements.Main.Main.Topbar.Left:GetPropertyChangedSignal"AbsoluteSize",function()
 local i=0
-local j=ar.UIElements.Main.Main.Topbar.Right.UIListLayout.AbsoluteContentSize.X/aq.WindUI.UIScale
+local j=ar.UIElements.Main.Main.Topbar.Right.UIListLayout.AbsoluteContentSize.X/aq.roblox.UIScale
 if h and e then
-i=math.max(h.TextBounds.X/aq.WindUI.UIScale,e.TextBounds.X/aq.WindUI.UIScale)
+i=math.max(h.TextBounds.X/aq.roblox.UIScale,e.TextBounds.X/aq.roblox.UIScale)
 else
-i=h.TextBounds.X/aq.WindUI.UIScale
+i=h.TextBounds.X/aq.roblox.UIScale
 end
 if g then
-i=i+(ar.IconSize/aq.WindUI.UIScale)+(ar.UIPadding/aq.WindUI.UIScale)+(4/aq.WindUI.UIScale)
+i=i+(ar.IconSize/aq.roblox.UIScale)+(ar.UIPadding/aq.roblox.UIScale)+(4/aq.roblox.UIScale)
 end
 ar.UIElements.Main.Main.Topbar.Center.Position=UDim2.new(
 0,
-i+(ar.UIPadding/aq.WindUI.UIScale),
+i+(ar.UIPadding/aq.roblox.UIScale),
 0.5,
 0
 )
 ar.UIElements.Main.Main.Topbar.Center.Size=UDim2.new(
 1,
--i-j-((ar.UIPadding*2)/aq.WindUI.UIScale),
+-i-j-((ar.UIPadding*2)/aq.roblox.UIScale),
 1,
 0
 )
@@ -10576,7 +10576,7 @@ end
 ar.UIElements.BackgroundGradient=ai.NewRoundFrame(ar.UICorner,"Squircle",{
 Size=UDim2.new(1,0,1,0),
 Parent=ar.UIElements.Main.Background,
-ImageTransparency=ar.Transparent and aq.WindUI.TransparencyValue or 0
+ImageTransparency=ar.Transparent and aq.roblox.TransparencyValue or 0
 },{
 j
 })
@@ -10662,7 +10662,7 @@ end
 
 function ar.SetBackgroundTransparency(j,l)
 local m=math.floor(tonumber(l)*10+0.5)/10
-aq.WindUI.TransparencyValue=m
+aq.roblox.TransparencyValue=m
 ar:ToggleTransparency(m>0)
 end
 
@@ -10737,7 +10737,7 @@ function ar.OnDestroy(m,p)
 ar.OnDestroyCallback=p
 end
 
-if aq.WindUI.UseAcrylic then
+if aq.roblox.UseAcrylic then
 ar.AcrylicPaint.AddParent(ar.UIElements.Main)
 end
 
@@ -10769,7 +10769,7 @@ task.wait(.06)
 ar.Closed=false
 
 ak(ar.UIElements.Main.Background,0.2,{
-ImageTransparency=ar.Transparent and aq.WindUI.TransparencyValue or 0,
+ImageTransparency=ar.Transparent and aq.roblox.TransparencyValue or 0,
 },Enum.EasingStyle.Quint,Enum.EasingDirection.Out):Play()
 
 if ar.UIElements.BackgroundGradient then
@@ -10821,7 +10821,7 @@ task.spawn(function()
 task.wait(.05)
 ar.UIElements.Main:WaitForChild"Main".Visible=true
 
-aq.WindUI:ToggleAcrylic(true)
+aq.roblox:ToggleAcrylic(true)
 end)
 end)
 end
@@ -10834,7 +10834,7 @@ ai.SafeCallback(ar.OnCloseCallback)
 end)
 end
 
-aq.WindUI:ToggleAcrylic(false)
+aq.roblox:ToggleAcrylic(false)
 
 ar.UIElements.Main:WaitForChild"Main".Visible=false
 
@@ -10895,9 +10895,9 @@ ar.AcrylicPaint.Model:Destroy()
 end
 ar.Destroyed=true
 task.wait(0.4)
-aq.WindUI.ScreenGui:Destroy()
-aq.WindUI.NotificationGui:Destroy()
-aq.WindUI.DropdownGui:Destroy()
+aq.roblox.ScreenGui:Destroy()
+aq.roblox.NotificationGui:Destroy()
+aq.roblox.DropdownGui:Destroy()
 
 ai.DisconnectAll()
 
@@ -10922,9 +10922,9 @@ end
 function ar.ToggleTransparency(m,p)
 
 ar.Transparent=p
-aq.WindUI.Transparent=p
+aq.roblox.Transparent=p
 
-ar.UIElements.Main.Background.ImageTransparency=p and aq.WindUI.TransparencyValue or 0
+ar.UIElements.Main.Background.ImageTransparency=p and aq.roblox.TransparencyValue or 0
 
 ar.UIElements.MainBar.Background.ImageTransparency=p and 0.97 or 0.95
 
@@ -10960,12 +10960,12 @@ return p
 end
 
 function ar.GetUIScale(m,p)
-return aq.WindUI.UIScale
+return aq.roblox.UIScale
 end
 
 function ar.SetUIScale(m,p)
-aq.WindUI.UIScale=p
-ak(aq.WindUI.ScreenGui.UIScale,.2,{Scale=p},Enum.EasingStyle.Quint,Enum.EasingDirection.Out):Play()
+aq.roblox.UIScale=p
+ak(aq.roblox.ScreenGui.UIScale,.2,{Scale=p},Enum.EasingStyle.Quint,Enum.EasingDirection.Out):Play()
 return ar
 end
 
@@ -11041,14 +11041,14 @@ end
 
 local m=a.load'T'
 local p=a.load'U'
-local r=m.Init(ar,aq.WindUI,aq.Parent.Parent.ToolTips)
+local r=m.Init(ar,aq.roblox,aq.Parent.Parent.ToolTips)
 r:OnChange(function(u)ar.CurrentTab=u end)
 
 ar.TabModule=m
 
 function ar.Tab(u,v)
 v.Parent=ar.UIElements.SideBar.Frame
-return r.New(v,aq.WindUI.UIScale)
+return r.New(v,aq.roblox.UIScale)
 end
 
 function ar.SelectTab(u,v)
@@ -11056,7 +11056,7 @@ r:SelectTab(v)
 end
 
 function ar.Section(u,v)
-return p.New(v,ar.UIElements.SideBar.Frame,ar.Folder,aq.WindUI.UIScale,ar)
+return p.New(v,ar.UIElements.SideBar.Frame,ar.Folder,aq.roblox.UIScale,ar)
 end
 
 function ar.IsResizable(u,v)
@@ -11231,8 +11231,8 @@ end
 
 wait()
 
-local Q=H.AbsoluteContentSize.X/aq.WindUI.UIScale
-local R=J.AbsoluteSize.X/aq.WindUI.UIScale
+local Q=H.AbsoluteContentSize.X/aq.roblox.UIScale
+local R=J.AbsoluteSize.X/aq.roblox.UIScale
 
 if Q>R then
 H.FillDirection=Enum.FillDirection.Vertical
@@ -11251,7 +11251,7 @@ local T
 local U=math.huge
 
 for V,W in ipairs(L)do
-local X=W.AbsoluteSize.X/aq.WindUI.UIScale
+local X=W.AbsoluteSize.X/aq.roblox.UIScale
 if X<U then
 U=X
 T=W
@@ -11525,7 +11525,7 @@ local aq=gethui and gethui()or(game.CoreGui or game.Players.LocalPlayer:WaitForC
 
 
 ac.ScreenGui=al("ScreenGui",{
-Name="WindUI",
+Name="roblox",
 Parent=aq,
 IgnoreGuiInset=true,
 ScreenInsets="None",
@@ -11554,12 +11554,12 @@ Name="ToolTips"
 })
 
 ac.NotificationGui=al("ScreenGui",{
-Name="WindUI/Notifications",
+Name="roblox/Notifications",
 Parent=aq,
 IgnoreGuiInset=true,
 })
 ac.DropdownGui=al("ScreenGui",{
-Name="WindUI/Dropdowns",
+Name="roblox/Dropdowns",
 Parent=aq,
 IgnoreGuiInset=true,
 })
@@ -11687,7 +11687,7 @@ end
 
 
 function ac.Popup(as,at)
-at.WindUI=ac
+at.roblox=ac
 return a.load'r'.new(at)
 end
 
@@ -11704,8 +11704,8 @@ ac:SetLanguage(ak.Language)
 function ac.CreateWindow(as,at)
 local au=a.load'X'
 
-if not isfolder"WindUI"then
-makefolder"WindUI"
+if not isfolder"roblox"then
+makefolder"roblox"
 end
 if at.Folder then
 makefolder(at.Folder)
@@ -11713,7 +11713,7 @@ else
 makefolder(at.Title)
 end
 
-at.WindUI=ac
+at.roblox=ac
 at.Parent=ac.ScreenGui.Window
 
 if ac.Window then
